@@ -2,4 +2,33 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: large;
+  background: rgba(192, 59, 192, 0.808) !important;
+}
+
+.wrapper {
+  height: 100vh;
+  padding-top: 6rem;
+}
+
+.input-div {
+  height: auto;
+
+  width: 100%;
+  padding: 1rem;
+}
+
+#search {
+  width: 75%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  outline: none;
+}
+
+#icon {
+  font-weight: bold;
+  font-size: xx-large;
+  cursor: pointer;
 }

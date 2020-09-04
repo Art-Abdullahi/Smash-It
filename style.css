@@ -2,18 +2,13 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: large;
-  background: rgba(192, 59, 192, 0.808) !important;
-}
 
-.wrapper {
+  background: rgba(192, 59, 192, 0.808) !important;
   height: 100vh;
-  padding-top: 6rem;
 }
 
 .input-div {
   height: auto;
-
   width: 100%;
   padding: 1rem;
 }
@@ -31,4 +26,32 @@ body {
   font-weight: bold;
   font-size: xx-large;
   cursor: pointer;
+}
+
+.result {
+  height: auto;
+  width: auto;
+  background: whitesmoke;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+}
+
+.details {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+@media (max-width: 480px) {
+  .result {
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+  }
+  .details {
+    flex-direction: column;
+    padding: 1rem;
+  }
 }

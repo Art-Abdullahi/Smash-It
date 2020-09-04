@@ -11,33 +11,40 @@
     <title>Smash It- Weather App</title>
   </head>
   <body>
-    <div class="wrapper text-center">
-      <div class="container text-center input-div">
-        <div class="input-form">
-          <h1>Smash It Weather app</h1>
-          <div class="search-bar">
-            <input
-              type="search"
-              placeholder="Search By Location"
-              aria-label="Search"
-              id="search"
-            />
-            <span id="icon">&#128269;</span>
+    <div class="container text-center input-div mt-5">
+      <div class="input-form">
+        <h1>Smash It Weather app</h1>
+        <div class="search-bar">
+          <input
+            type="search"
+            placeholder="Search By Location"
+            aria-label="Search"
+            id="search"
+          />
+          <span id="icon">&#128269;</span>
+        </div>
+      </div>
+    </div>
+    <div class="result text-center container">
+      <div class="info">
+        <div>
+          <h1 id="location-name">New York</h1>
+          <h3 id="weather">Clouds</h3>
+          <div><h1 id="temp">22°C</h1></div>
+          <div class="details p-3">
+            <div>
+              <h3>Wind Speed</h3>
+              <h5>5.1 km/h</h5>
+            </div>
+            <div>
+              <h3>Humidity</h3>
+              <h5>46 %</h5>
+            </div>
           </div>
+          <div><h3>Fri Sep 4th 2020</h3></div>
         </div>
       </div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body text-center">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
-        </div>
-      </div>
+      <div class="forecast card"><h2>Forecast</h2></div>
     </div>
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

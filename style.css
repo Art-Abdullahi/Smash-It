@@ -4,6 +4,7 @@ body {
   box-sizing: border-box;
   height: 100vh;
   background: #e1bcb9 !important;
+  position: relative;
 }
 
 .input-div {
@@ -38,6 +39,48 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: auto;
+
+  text-align: center;
+}
+
+.forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: auto;
+  height: auto;
+}
+.days {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px;
+  box-shadow: -3px -3px 5px #ffffff, 3px 3px 15px #000000;
+  height: auto;
+}
+
+.upper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.lower {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#img {
+  height: 100px;
+}
+#desc {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  padding: 1rem;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .details {
@@ -57,5 +100,11 @@ body {
   .details {
     flex-direction: column;
     padding: 1rem;
+  }
+  #desc {
+    flex-direction: column;
+  }
+  #img {
+    height: 100px;
   }
 }

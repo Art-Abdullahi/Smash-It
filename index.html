@@ -11,7 +11,7 @@
     <title>Smash It- Weather App</title>
   </head>
   <body>
-    <div class="container text-center input-div mt-5">
+    <div class="container text-center input-div">
       <div class="input-form">
         <h1>Weather App</h1>
         <div class="search-bar">
@@ -30,21 +30,85 @@
         <div>
           <h1 id="location-name">New York</h1>
           <h3 id="weather">Clouds</h3>
-          <div><h1 id="temp">22°C</h1></div>
+          <div id="desc" class="container">
+            <img src="images/sun.png" id="img" alt="" />
+            <h1 id="temp">22°C</h1>
+          </div>
           <div class="details p-3">
             <div>
               <h3>Wind Speed</h3>
-              <h5>5.1 km/h</h5>
+              <h5 id="windspeed">5.1 km/h</h5>
             </div>
             <div>
               <h3>Humidity</h3>
-              <h5>46 %</h5>
+              <h5 id="humidity">46 %</h5>
             </div>
           </div>
-          <div><h3>Fri Sep 4th 2020</h3></div>
+          <div><h3 id="time">Fri Sep 4th 2020</h3></div>
         </div>
       </div>
-      <div class="forecast"><h2>Forecast</h2></div>
+      <div class="forecast">
+        <div class="days">
+          <div class="upper">
+            <img src="images/sun.png" height="30px" alt="" />
+            <h1>Monday</h1>
+            <h1>22°C</h1>
+          </div>
+          <div class="lower">
+            <div><small>Humidity</small><br /><small>46 %</small></div>
+            <div><small>Wind speed</small><br /><small>5.1 km/h</small></div>
+            <div><small>UVI</small><br /><small>29</small></div>
+          </div>
+        </div>
+        <div class="days">
+          <div class="upper">
+            <img src="images/sun.png" height="30px" alt="" />
+            <h1>Tuesday</h1>
+            <h1>22°C</h1>
+          </div>
+          <div class="lower">
+            <div><small>Humidity</small><br /><small>46 %</small></div>
+            <div><small>Wind speed</small><br /><small>5.1 km/h</small></div>
+            <div><small>UVI</small><br /><small>29</small></div>
+          </div>
+          </div>
+        <div class="days">
+          <div class="upper">
+            <img src="images/rain.png" height="30px" alt="" />
+            <h1>Wendsday</h1>
+            <h1>22°C</h1>
+          </div>
+          <div class="lower">
+            <div><small>Humidity</small><br /><small>46 %</small></div>
+            <div><small>Wind speed</small><br /><small>5.1 km/h</small></div>
+            <div><small>UVI</small><br /><small>29</small></div>
+          </div>
+        </div>
+        <div class="days">
+          <div class="upper">
+            <img src="images/rain.png" height="30px" alt="" />
+            <h1>Thursday</h1>
+            <h1>22°C</h1>
+          </div>
+          <div class="lower">
+            <div><small>Humidity</small><br /><small>46 %</small></div>
+            <div><small>Wind speed</small><br /><small>5.1 km/h</small></div>
+            <div><small>UVI</small><br /><small>29</small></div>
+          </div>
+        </div>
+        <div class="days">
+          <div class="upper">
+            <img src="images/sun.png" height="30px" alt="" />
+            <h1>Friday</h1>
+            <h1>22°C</h1>
+          </div>
+          <div class="lower">
+            <div><small>Humidity</small><br /><small>46 %</small></div>
+            <div><small>Wind speed</small><br /><small>5.1 km/h</small></div>
+            <div><small>UVI</small><br /><small>29</small></div>
+          </div>
+        </div>
+      
     </div>
     <script src="main.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

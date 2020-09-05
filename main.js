@@ -7,20 +7,30 @@ let image = document.getElementById("img");
 let windSpeed = document.getElementById("windspeed");
 let humidity = document.getElementById("humidity");
 let time = document.getElementById("time");
-const converter = (temp) => {
-  return Math.floor(temp - 273.15);
-};
-
+let result = document.getElementById("result");
+result.style.display = "none";
 const formatter = (datetime) => {
-  const date = new Date(datetime * 1000);
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-  const day = date.getDay();
+  let date = new Date(datetime * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wensday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
   let hours = date.getHours();
   const minutes = date.getMinutes();
   if (hours < 10) {
     hours = "0" + hours;
   }
-  time.innerHTML = days[day - 1] + " at " + hours + ":" + minutes;
+  return day + " " + "at" + " " + hours + ":" + minutes;
+};
+
+const converter = (temp) => {
+  return Math.floor(temp - 273.15);
 };
 
 button.addEventListener("click", async function search() {
@@ -36,13 +46,19 @@ button.addEventListener("click", async function search() {
     weather.innerHTML = data.weather[0].main;
     windSpeed.innerHTML = data.wind.speed + "km/h";
     humidity.innerHTML = data.main.humidity + "%";
-    const time = formatter(data.dt);
+    time.innerHTML = formatter(data.dt);
     image.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    result.style.display = "grid";
     console.log(data);
+
     const secondResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&
     exclude=hourly,daily&appid=a5f4b0fe9b2866e4571b89879fd57c60`);
     const data2 = await secondResponse.json();
     console.log(data2);
+    for (let i = 0; i < data2.daily.length; i++) {
+      const element = data2.daily[i];
+      console.log(element);
+    }
   } catch (error) {
     console.error(error);
   }

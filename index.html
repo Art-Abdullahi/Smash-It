@@ -9,11 +9,16 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <title>Smash It- Weather App</title>
+    <script src="main.js"></script>
   </head>
   <body>
+    <div class="navbar">
+      <h3>TWR</h3>
+      <date id="date"></date>
+    </div>
     <div class="container text-center input-div">
       <div class="input-form">
-        <h1>Weather App</h1>
+        <h1>The Weather Report</h1>
         <div class="search-bar">
           <input
             type="search"
@@ -25,7 +30,33 @@
         </div>
       </div>
     </div>
+    <div id="grid" class="grid-box">
+      <div class="single text-center m-2">
+        <h1>Moscow</h1>
+        <p>Sunday 27th August</p>
+        <img src="images/rain.png" height="50px" alt="">
+<h1>20°C</h1>
+
+  
+  <p>Clouds</p>
+</div>
+      <div class="single text-center m-2">        <h1>Moscow</h1>
+        <p>Sunday 27th August</p>
+        <img src="images/rain.png" height="50px" alt="">
+<h1>20°C</h1>
+
+  
+  <p>Clouds</p></div>
+      <div class="single text-center m-2">        <h1>Moscow</h1>
+        <p>Sunday 27th August</p>
+        <img src="images/rain.png" height="50px" alt="">
+<h1>20°C</h1>
+
+  
+  <p>Clouds</p></div>
+            </div>
     <div id="result" class="result text-center container p-3 mt-3">
+
       <div class="info">
         <div>
           <h1 id="location-name">New York</h1>
@@ -110,7 +141,7 @@
         </div>
       
     </div>
-    <script src="main.js"></script>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -27,8 +27,26 @@ const hide = () => {
   result.style.display = "none";
 };
 
+const fetchCities = async () => {
+  try {
+    const response = await fetch(
+      "https://api.openweathermap.org/data/2.5/group?id=524901,703448,2643743&units=metric&appid=a5f4b0fe9b2866e4571b89879fd57c60",
+      { origin: "cors" }
+    );
+    const data = await response.json();
+    for (let i = 0; i < data.list.length; i++) {
+      const element = data.list[i];
+      console.log(element.name);
+    }
+    console.log(data.list);
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 window.onload = function setUpEvents() {
   hide();
+  fetchCities();
   var input = document.getElementById("search");
   var button = document.getElementById("icon");
   let locationName = document.getElementById("location-name");

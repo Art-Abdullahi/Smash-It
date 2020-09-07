@@ -130,7 +130,6 @@ window.onload = function setUpEvents() {
 
   button.addEventListener("click", async function search() {
     try {
-      console.log(input.value);
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=a5f4b0fe9b2866e4571b89879fd57c60`
       );
@@ -145,12 +144,11 @@ window.onload = function setUpEvents() {
       time.innerHTML = formatter(data.dt);
       image.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       result.style.display = "grid";
-      console.log(data);
 
       const secondResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&
       exclude=hourly,daily&appid=a5f4b0fe9b2866e4571b89879fd57c60`);
       const data2 = await secondResponse.json();
-      console.log(data2);
+
       for (let i = 0; i < data2.daily.length; i++) {
         const element = data2.daily[i];
         if (i < 5) {
@@ -175,8 +173,6 @@ window.onload = function setUpEvents() {
           const lowerDiv = document.createElement("div");
           lowerDiv.classList.add("lower");
           forecastCard.append(lowerDiv);
-
-          console.log(lowerDiv);
 
           const cen = document.createElement("div");
           cen.classList.add("cen");
@@ -212,8 +208,6 @@ window.onload = function setUpEvents() {
           uviValue.innerHTML = Math.floor(element.uvi);
           cen2.append(uvi);
           cen2.append(uviValue);
-
-          console.log(getSingleDay(element.dt));
         }
       }
     } catch (error) {

@@ -178,8 +178,6 @@ window.onload = function setUpEvents() {
           cen3.classList.add("cen3");
           lowerDiv.append(cen3);
 
-          console.log(forecastCard);
-
           const humidity = document.createElement("h5");
           const humidityValue = document.createElement("small");
           humidity.innerHTML = "Humidity";

@@ -58,15 +58,7 @@ const formatter = (datetime) => {
 
 const getSingleDay = (fullTime) => {
   let date = new Date(fullTime * 1000);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wensday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
 
   return day;

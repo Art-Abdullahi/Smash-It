@@ -8,7 +8,7 @@ body {
 }
 
 .navbar {
-  height: 6rem;
+  height: auto;
   width: auto;
   margin: 2rem 2rem 2rem 2rem;
   box-shadow: -3px -3px 5px #ffffff, 3px 3px 15px #000000;

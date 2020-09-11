@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   height: 100vh;
-  background: #e1bcb9 !important;
+  background-color: #e1bcb9 !important;
   position: relative;
 }
 

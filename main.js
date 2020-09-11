@@ -13,12 +13,10 @@ let placeTime = document.getElementById("time");
 let foreCastImage = document.getElementById("forecastImg");
 let daily = document.getElementById("daily");
 let forecastTemp = document.getElementById("forecast-temp");
-
-let weeklyUpdate = 1;
+let result = document.getElementById("result");
 
 let forecastData = async (lat, lon) => {
   try {
-    console.log(await lat);
     const response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${await lat}&lon=${await lon}&
   exclude=hourly,daily&appid=a5f4b0fe9b2866e4571b89879fd57c60`);
     let dataForecast = await response.json();
@@ -99,24 +97,91 @@ const hide = () => {
   result.style.display = "none";
 };
 
+const deleteElements = (elements) => {
+  for (let i = 0; i < elements.length; i++) {
+    const element = elements[i];
+    const deno = document.querySelector(element);
+    if (deno) {
+      deno.remove();
+    }
+  }
+};
+
 const createForecastCard = (arr) => {
+  deleteElements([
+    ".days",
+    ".upper",
+    ".day-name",
+    ".icon-name",
+    ".temparature",
+    ".lower",
+    ".cen",
+    ".cen2",
+    ".cen3",
+    "#forecast",
+  ]);
+  forecast = document.createElement("div");
+  forecast.id = "forecast";
+  result.append(forecast);
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
+    if (i < 5) {
+      let forecastCard = document.createElement("div");
+      forecastCard.classList.add("days");
+      forecast.append(forecastCard);
+      let upperDiv = document.createElement("div");
+      upperDiv.classList.add("upper");
+      forecastCard.append(upperDiv);
+      let dayName = document.createElement("h1");
+      dayName.classList.add("day-name");
+      let icon = document.createElement("img");
+      icon.classList.add("icon-name");
+      let temparature = document.createElement("h1");
+      temparature.classList.add("temparature");
+      temparature.innerHTML = converter(element.temp.max) + "°C";
+      dayName.innerHTML = getSingleDay(element.dt);
+      icon.src = `https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`;
+      upperDiv.append(dayName);
+      upperDiv.append(temparature);
+      upperDiv.append(icon);
 
-    let forecastCard = document.createElement("div");
-    forecastCard.className = "days";
-    forecast.append(forecastCard);
-    let upperDiv = document.createElement("div");
-    upperDiv.classList.add("upper");
-    forecastCard.append(upperDiv);
-    let dayName = document.createElement("h1");
-    let icon = document.createElement("img");
-    let temparature = document.createElement("h1");
-    dayName.innerHTML = getSingleDay(element.dt);
-    icon.src = `https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`;
-    upperDiv.append(dayName);
-    upperDiv.append(icon);
-    console.log(forecast);
+      let lowerDiv = document.createElement("div");
+      lowerDiv.classList.add("lower");
+      forecastCard.append(lowerDiv);
+
+      let cen = document.createElement("div");
+      cen.classList.add("cen");
+      lowerDiv.appendChild(cen);
+
+      let cen2 = document.createElement("div");
+      cen2.classList.add("cen2");
+      lowerDiv.append(cen2);
+
+      let cen3 = document.createElement("div");
+      cen3.classList.add("cen3");
+      lowerDiv.append(cen3);
+
+      let humidity = document.createElement("h5");
+      let humidityValue = document.createElement("small");
+      humidity.innerHTML = "Humidity";
+      humidityValue.innerHTML = element.humidity + " " + "%";
+      cen.append(humidity);
+      cen.append(humidityValue);
+
+      let windSpeed = document.createElement("h5");
+      let windSpeedValue = document.createElement("small");
+      windSpeed.innerHTML = "Wind Speed";
+      windSpeedValue.innerHTML = element.wind_speed + " " + "Km/h";
+      cen3.append(windSpeed);
+      cen3.append(windSpeedValue);
+
+      let uvi = document.createElement("h5");
+      let uviValue = document.createElement("small");
+      uvi.innerHTML = "UVI";
+      uviValue.innerHTML = Math.floor(element.uvi);
+      cen2.append(uvi);
+      cen2.append(uviValue);
+    }
   }
 };
 
@@ -177,67 +242,8 @@ window.onload = function setUpEvents() {
 
       let data2 = forecastData(data.coord.lat, data.coord.lon);
       const weeklyData = await data2;
-      console.log(weeklyData);
+
       createForecastCard(weeklyData.daily);
-      // for (let i = 0; i < weeklyData.daily.length; i++) {
-      //   let element = weeklyData.daily[i];
-      //   if (i < 5) {
-      //     let forecastCard = document.createElement("div");
-      //     forecastCard.classList.add("days");
-
-      //     let upperDiv = document.createElement("div");
-      //     upperDiv.classList.add("upper");
-
-      //     let icon = document.createElement("img");
-      //     let forecastDay = document.createElement("h1");
-      //     let degrees = document.createElement("h1");
-      //     icon.src = `https://openweathermap.org/img/wn/${element.weather[0].icon}@2x.png`;
-      //     forecastDay.innerHTML = getSingleDay(element.dt);
-      //     degrees.innerHTML = converter(element.temp.max) + "°C";
-      //     forecast.append(forecastCard);
-      //     forecastCard.append(upperDiv);
-      //     upperDiv.append(icon);
-      //     upperDiv.append(forecastDay);
-      //     upperDiv.append(degrees);
-
-      //     let lowerDiv = document.createElement("div");
-      //     lowerDiv.classList.add("lower");
-      //     forecastCard.append(lowerDiv);
-
-      //     let cen = document.createElement("div");
-      //     cen.classList.add("cen");
-      //     lowerDiv.appendChild(cen);
-
-      //     let cen2 = document.createElement("div");
-      //     cen2.classList.add("cen2");
-      //     lowerDiv.append(cen2);
-
-      //     let cen3 = document.createElement("div");
-      //     cen3.classList.add("cen3");
-      //     lowerDiv.append(cen3);
-
-      //     let humidity = document.createElement("h5");
-      //     let humidityValue = document.createElement("small");
-      //     humidity.innerHTML = "Humidity";
-      //     humidityValue.innerHTML = element.humidity + " " + "%";
-      //     cen.append(humidity);
-      //     cen.append(humidityValue);
-
-      //     let windSpeed = document.createElement("h5");
-      //     let windSpeedValue = document.createElement("small");
-      //     windSpeed.innerHTML = "Wind Speed";
-      //     windSpeedValue.innerHTML = element.wind_speed + " " + "Km/h";
-      //     cen3.append(windSpeed);
-      //     cen3.append(windSpeedValue);
-
-      //     let uvi = document.createElement("h5");
-      //     let uviValue = document.createElement("small");
-      //     uvi.innerHTML = "UVI";
-      //     uviValue.innerHTML = Math.floor(element.uvi);
-      //     cen2.append(uvi);
-      //     cen2.append(uviValue);
-      //   }
-      // }
     } catch (error) {
       console.error(error);
     }

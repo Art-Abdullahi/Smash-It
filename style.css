@@ -5,6 +5,7 @@ body {
   height: 100vh;
   background-color: #e1bcb9 !important;
   position: relative;
+  font-family: "Courier New", Courier, monospace !important;
 }
 
 .navbar {
@@ -57,6 +58,9 @@ body {
   font-weight: bold;
   font-size: xx-large;
   cursor: pointer;
+  background: #e1bcb9;
+  outline: none;
+  box-shadow: -3px -3px 5px #ffffff, 3px 3px 15px #000000;
 }
 
 .result {

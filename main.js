@@ -192,6 +192,7 @@ const fetchCities = async () => {
       { origin: "cors" }
     );
     const data = await response.json();
+
     for (let i = 0; i < data.list.length; i++) {
       let element = data.list[i];
       let card = document.createElement("div");
